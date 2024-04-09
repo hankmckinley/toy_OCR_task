@@ -21,6 +21,20 @@ This problem requires you to digitize the numbers in the `data` folder of this d
 
 Replace this text with instructions for recreating the environment necessary to run your code. 
 
+How I set up my environment, edit later for style. 
+
+1. Started a new virtual environment
+2. Run following from Tesseract and pytesseract documentation, we are using Homebrew on macOS:
+
+brew install tesseract
+pip install pytesseract
+
+3. We also needed openCV for image pre-processing, which you install with:
+
+pip install opencv-python
+
+
+
 ## Instructions to reproduce the output (YOU EDIT)
 
 The `output.txt` file contained in this repository was generated with the code available in the `code/` folder....
