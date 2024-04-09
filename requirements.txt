@@ -1,1 +1,7 @@
+Tesseract OCR
+
+Python Libraries:
+pytesseract
+os
+cv2
 
