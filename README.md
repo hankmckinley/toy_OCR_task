@@ -22,11 +22,11 @@ This problem requires you to digitize the numbers in the `data` folder of this d
 1. Start by setting up a new virtual environment to isolate your project dependencies.
 2. Install Tesseract OCR engine ([Installation Documentation](https://tesseract-ocr.github.io/tessdoc/Installation.html)) and Python dependencies using the following commands in your terminal
 
-'''
+```
 brew install tesseract
 pip install pytesseract
 pip install opencv-python
-'''
+```
 
 
 ## Instructions to reproduce the output
@@ -35,8 +35,8 @@ pip install opencv-python
 2. Activate your virtual environment.
 3. Follow Setup Instructions above. 
 4. Run the main.py script located in the code folder using the following command:
-'''
+```bash
 python code/main.py
-'''
+```
 
 This script will process the images in the data folder, perform OCR using Tesseract, and generate an output.txt file containing the numbers extracted from the images.
