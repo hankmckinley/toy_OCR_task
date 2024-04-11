@@ -17,21 +17,26 @@ This problem requires you to digitize the numbers in the `data` folder of this d
 1. A `code` folder containing all the Python code necessary to generate the output file and a filled out section of the readme explaining these contents and how to run the code. Please additionally ensure that the code is properly commented and easily readable. 
 1. The `output.txt` file containing the numbers printed on the documents in the data folder, in order and with a new line for each new entry. 
 
-## Setup instructions (YOU EDIT)
+## Setup instructions
 
-1. Started a new virtual environment
+1. Start by setting up a new virtual environment to isolate your project dependencies.
+2. Install Tesseract OCR engine ([Installation Documentation](https://tesseract-ocr.github.io/tessdoc/Installation.html)) and Python dependencies using the following commands in your terminal
 
-
-2. Run following code from Tesseract and pytesseract documentation in terminal, we are using Homebrew on macOS for the tesseract install and pip for python libraries. 
-
+'''
 brew install tesseract
 pip install pytesseract
-
-
-3. We also needed openCV for image pre-processing, which you install with:
-
 pip install opencv-python
+'''
 
-## Instructions to reproduce the output (YOU EDIT)
 
-In order to reproduce the output you just need to run main.py in the code folder. Assuming the dependencies have been installed incorrectly this will fill the output.txt file with the necessary numbers.
+## Instructions to reproduce the output
+
+1. Clone this repository to your local machine and navigate to the project directory.
+2. Activate your virtual environment.
+3. Follow Setup Instructions above. 
+4. Run the main.py script located in the code folder using the following command:
+'''
+python code/main.py
+'''
+
+This script will process the images in the data folder, perform OCR using Tesseract, and generate an output.txt file containing the numbers extracted from the images.

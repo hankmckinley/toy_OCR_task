@@ -1,6 +1,7 @@
-import pytesseract
-import os
-import cv2
+# Neccessary Packages 
+import pytesseract      # Python wrapper for Tesseract OCR Engine
+import os               # for file manipulation
+import cv2              # Open CV for image prepocessing
 
 def process_image(image):
     '''
@@ -36,9 +37,10 @@ def ocr_image(file_path):
 
 def main():
     # This is set up so that your current working directory is the code folder
-    current_dir = os.getcwd()
-    folder_path = os.path.join(current_dir, '../data/')
-    output_file = open("../output.txt", "w")
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    folder_path = os.path.join(current_dir, '..', 'data')
+    output_file_path = os.path.join(current_dir, '..', 'output.txt')
+    output_file = open(output_file_path, "w")
     
     # Here we collect the filenames from the folder and sort them by image number.
     filenames = os.listdir(folder_path)
