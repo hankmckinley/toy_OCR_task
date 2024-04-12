@@ -19,7 +19,12 @@ This problem requires you to digitize the numbers in the `data` folder of this d
 
 ## Setup instructions
 
-1. Start by setting up a new virtual environment to isolate your project dependencies.
+1. Start by setting up and activating a new virtual environment to isolate your project dependencies.
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
 2. Install Tesseract OCR engine ([Installation Documentation](https://tesseract-ocr.github.io/tessdoc/Installation.html)) and Python dependencies using the following commands in your terminal
 
 ```
