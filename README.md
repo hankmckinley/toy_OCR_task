@@ -17,7 +17,35 @@ This problem requires you to digitize the numbers in the `data` folder of this d
 1. A `code` folder containing all the Python code necessary to generate the output file and a filled out section of the readme explaining these contents and how to run the code. Please additionally ensure that the code is properly commented and easily readable. 
 1. The `output.txt` file containing the numbers printed on the documents in the data folder, in order and with a new line for each new entry. 
 
-## Setup instructions
+
+# My Work
+
+## Introduction
+First of all, thank you again for the oppportunity to complete this project, I had a lot of fun working on it! I ended up going a bit beyond the demands of the task as that seemed to work pretty well for me as far as getting the interview in the first place. 
+
+First, I completed the assigned OCR task by using the Tesseract OCR engine, which is the most commonly used open-source OCR engine that uses a pre-trained Convolutional Neural Network to identify text from images. I did some image preprocessing with openCV, an open-source computer vision library, to try to improve the accuracy of the OCR. That was fun but I felt that in order to improve recognition performance I was going to need additional data to fine-tune the model with built-in tools from Tesseract (I did not end up fine-tuning the model). To gather more images like the ones you provided, I decided to dive into how I can use openCV to cut the images automatically. I also thought this might be useful if I end up being selected for the position. 
+
+I provide an overview of what the code does below, for more detailed line-by-line descriptions I left comments within the code. 
+
+## Data Separation
+While I could have just gone through and manually cut out the numbers from the larger example you provided to build additional data points, that seemed like it was going to take forever. So instead I embarked on the long journey of figuring out how to use openCV to detect the edges of numbers and cut them out automatically. 
+
+### Pre-processing for Data Separation
+In order to properly detect the edges of the numbers I need to do a couple of pre-processing steps in openCV. First I put the images through binarization because it seemed like a standard first step. Then I applied a dilation affect to essentially expand the black sections of the image (the numbers) into rectangles with more obvious edges. Then we reduce the image to a single line of pixels, and grab the contours of the white spaces. You can see this process play out below:
+
+![Alt text](preprocessing_figure.png)
+
+### Cutting for Data Separation
+Once I had the y-values of the white spaces it was pretty easy to cut the image up. I did later realize that becuase every number is the same height it should have been relatively easy to just cut things up at set intervals, but this tool is better because it is adaptable to data with varying distances between numbers and multi-line numbers. 
+
+You can see the outputted images in the /more_data/cut_images directory. Though it should be noted that I did not have time to figure out how to use them to fine-tune the Tesseract model, but I know it is possible.  
+
+## OCR Task
+The OCR task ended up being a little simpler than the data separation I chose to attempt. I used some simple pre-processing techniques to just binarize the image into black and white and then used the resize method to attempt to spread the numbers horizontally and blur some of the edges. I found that helped a lot in numbers that had two digits close together. 
+
+For the OCR itself I just used the newest Tesseract model with a character blacklist to exlclude the alphabet and common non-number symbols. 
+
+# Setup instructions
 
 1. Start by setting up and activating a new virtual environment to isolate your project dependencies.
 ```
@@ -31,17 +59,27 @@ source venv/bin/activate
 brew install tesseract
 pip install pytesseract
 pip install opencv-python
+pip install numpy
 ```
 
 
-## Instructions to reproduce the output
+# Instructions to reproduce the output
 
 1. Clone this repository to your local machine and navigate to the project directory.
 2. Activate your virtual environment.
 3. Follow Setup Instructions above. 
 4. Run the main.py script located in the code folder using the following command:
 ```bash
-python code/main.py
+python3 code/main.py
+```
+5. (Optional) If you want to do the data generation you use this script. 
+```bash
+python3 more_data/cut_image.py
 ```
 
-This script will process the images in the data folder, perform OCR using Tesseract, and generate an output.txt file containing the numbers extracted from the images.
+The first script will process the images in the data folder, perform OCR using Tesseract, and generate an output.txt file containing the numbers extracted from the images.
+
+The second script is for cutting images to generate more training data. You will find the output in the /more_data/cut_images directory.
+
+## Conclusion
+I had a lot of fun working on this and would love the opportunity to continue doing so for the forseeable future. 
