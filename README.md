@@ -83,3 +83,6 @@ The second script is for cutting images to generate more training data. You will
 
 ## Conclusion
 I had a lot of fun working on this and would love the opportunity to continue doing so for the forseeable future. 
+
+
+### Reference for Data Separation Preprocessing: ([Stackoverflow Post](https://stackoverflow.com/questions/66494482/how-to-identify-space-between-paragraphs-and-draw-a-line-between-them-using-open))
